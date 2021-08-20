@@ -1,5 +1,5 @@
 {
-  "name": "@ishikawa_masashi/utilities",
+  "name": "@ishikawa-masashi/utilities",
   "description": "A TypeScript npm package skeleton/starter project with microbundle, AVA and XO",
   "version": "0.2.1",
   "source": "src/index.ts",
