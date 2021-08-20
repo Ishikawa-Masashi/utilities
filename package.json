@@ -58,7 +58,8 @@
   "license": "MIT",
   "dependencies": {},
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "directories": {
     "test": "tests"
