@@ -20,14 +20,14 @@ describe('array utils tests', () => {
 
     it('should return the correct index when the predicate satisfies the condition', () => {
       const array = [0, 1, 2];
-      const index = findIndex(array, (elem: number) => elem === 1);
+      const index = findIndex(array, (elem) => elem === 1);
 
       expect(index).toEqual(1);
     });
 
     it('should return the first index when repeated elements satisfy the predicate', () => {
       const array = [0, 1, 2, 2];
-      const index = findIndex(array, (elem: number) => elem === 2);
+      const index = findIndex(array, (elem) => elem === 2);
 
       expect(index).toEqual(2);
     });

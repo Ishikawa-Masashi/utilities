@@ -10,13 +10,13 @@
  */
 export function findIndex<T>(
   array: T[],
-  cb: (item: T | undefined, index: number) => boolean,
+  cb: (item: T, index: number) => boolean,
   fromIndex: number = 0
 ): number {
   let index = -1;
 
   for (let i = fromIndex; array && i < array.length; i++) {
-    if (cb(array[i], i)) {
+    if (cb(array[i]!, i)) {
       index = i;
       break;
     }
@@ -32,7 +32,7 @@ export function findIndex<T>(
  */
 export function find<T>(
   array: T[],
-  cb: (item: T | undefined, index: number) => boolean
+  cb: (item: T, index: number) => boolean
 ): T | undefined {
   let index = findIndex(array, cb);
 
