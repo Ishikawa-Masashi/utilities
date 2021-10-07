@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "jest": "^27.0.6",
-    "microbundle": "^0.13.2",
+    "microbundle": "^0.14.0",
     "np": "^7.5.0",
     "ts-jest": "^27.0.5",
     "xo": "^0.36.1"
