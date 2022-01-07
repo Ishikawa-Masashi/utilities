@@ -5,3 +5,5 @@ export * from './ISize';
 export * from './Rectangle';
 export * from './PID';
 export * from './math/mersenneTwister';
+
+export * from './dom';

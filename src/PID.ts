@@ -30,8 +30,8 @@ class PIDImpl {
     let output = Pout + Iout + Dout;
 
     // Restrict to max/min
-    if (output > this._max) output = this._max;
-    else if (output < this._min) output = this._min;
+    if (output > this._max) {output = this._max;}
+    else if (output < this._min) {output = this._min;}
 
     // Save error to previous error
     this._pre_error = error;

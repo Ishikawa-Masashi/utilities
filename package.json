@@ -1,23 +1,28 @@
 {
   "name": "@ishikawa-masashi/utilities",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "main": "./dist/index.es.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "clean": "rimraf dist types",
     "watch": "tsc -w | vite build --watch",
-    "build": "tsc && vite build",
+    "build": "yarn clean && tsc && vite build",
     "build:debug": "node --inspect-brk=5858 ./node_modules/.bin/vite build",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "lint": "eslint --fix \"src/**/*.{js,ts}\""
   },
   "dependencies": {
-    "antd": "^4.15.2",
     "react": "^17.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.1",
     "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.0.6",
     "less": "^4.1.1",
     "rimraf": "^3.0.2",

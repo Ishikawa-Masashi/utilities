@@ -3,7 +3,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
     "prettier",
     "plugin:react-hooks/recommended"
   ],
@@ -18,7 +17,9 @@
     "project": "./tsconfig.json",
     "createDefaultProgram": true
   },
+  "root": true, // 上位ディレクトリにある他のeslintrcを参照しないようにする。これがないとエラーが発生する元になる
   "rules": {
+    "curly": "error",
     "@typescript-eslint/no-non-null-assertion": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off"

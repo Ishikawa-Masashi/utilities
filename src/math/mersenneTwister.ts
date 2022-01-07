@@ -54,7 +54,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * See also: setSeed(seed).
  */
 export class MersenneTwister {
-  private _mt = new Array(624);
+  private _mt = new Array<number>(624);
   private _index!: number;
   constructor(seed: number | number[] = new Date().getTime()) {
     // if (arguments.length == 0) seed = new Date().getTime();
@@ -65,9 +65,9 @@ export class MersenneTwister {
 
   /** multiplies two uint32 values and returns a uint32 result. */
   static _mulUint32(a: number, b: number) {
-    var a1 = a >>> 16,
+    const a1 = a >>> 16,
       a2 = a & 0xffff;
-    var b1 = b >>> 16,
+    const b1 = b >>> 16,
       b2 = b & 0xffff;
     return (((a1 * b2 + a2 * b1) << 16) + a2 * b2) >>> 0;
   }
@@ -87,7 +87,7 @@ export class MersenneTwister {
    * the original C version.
    */
   public setSeed(seed: number | number[]) {
-    var mt = this._mt;
+    const mt = this._mt;
     if (typeof seed == 'number') {
       mt[0] = seed >>> 0;
       for (var i = 1; i < mt.length; i++) {
@@ -128,11 +128,11 @@ export class MersenneTwister {
 
   /** returns the next random Uint32 value. */
   private _nextInt() {
-    var mt = this._mt,
+    let mt = this._mt,
       value;
 
     if (this._index >= mt.length) {
-      var k = 0,
+      let k = 0,
         N = mt.length,
         M = 397;
       do {
@@ -167,7 +167,7 @@ export class MersenneTwister {
    * version for min=0 & max=2^32, but not with genrand_int31 function.
    */
   public nextInt() {
-    var min, sup;
+    let min, sup;
     switch (arguments.length) {
       case 0:
         return this._nextInt();
@@ -181,10 +181,10 @@ export class MersenneTwister {
         break;
     }
 
-    if (!(0 < sup && sup < 0x100000000)) return this._nextInt() + min;
-    if ((sup & (~sup + 1)) == sup) return ((sup - 1) & this._nextInt()) + min;
+    if (!(0 < sup && sup < 0x100000000)) {return this._nextInt() + min;}
+    if ((sup & (~sup + 1)) == sup) {return ((sup - 1) & this._nextInt()) + min;}
 
-    var value;
+    let value;
     do {
       value = this._nextInt();
     } while (sup > 4294967296 - (value - (value %= sup)));

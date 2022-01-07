@@ -21,4 +21,4 @@ export interface Point {
  * @deprecated Use `Point` instead.
  * {@docCategory Point}
  */
-export interface IPoint extends Point {}
+export type IPoint = Point

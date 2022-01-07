@@ -1,3 +1,4 @@
+// https://magicant.github.io/sjavascript/mt.html
 import { MersenneTwister } from '../src';
 
 describe('MersenneTwister', () => {
