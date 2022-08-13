@@ -5,8 +5,8 @@ describe('MersenneTwister', () => {
   it('乱数生成テスト', () => {
     const mt = new MersenneTwister([0x123, 0x234, 0x345, 0x456]);
 
-    const resultInt = [];
-    for (var i = 0; i < 20; i++) {
+    const resultInt: number[] = [];
+    for (let i = 0; i < 20; i++) {
       resultInt.push(mt.nextInt());
     }
     expect(resultInt[0]).toEqual(1067595299);
@@ -30,8 +30,8 @@ describe('MersenneTwister', () => {
     expect(resultInt[18]).toEqual(1773610557);
     expect(resultInt[19]).toEqual(1138697238);
 
-    const resultFloat = [];
-    for (var i = 0; i < 20; i++) {
+    const resultFloat: number[] = [];
+    for (let i = 0; i < 20; i++) {
       resultFloat.push(mt.next());
     }
     expect(resultFloat[0]).toEqual(0.3310613579725882);

@@ -181,12 +181,8 @@ export class MersenneTwister {
         break;
     }
 
-    if (!(0 < sup && sup < 0x100000000)) {
-      return this._nextInt() + min;
-    }
-    if ((sup & (~sup + 1)) == sup) {
-      return ((sup - 1) & this._nextInt()) + min;
-    }
+    if (!(0 < sup && sup < 0x100000000)) {return this._nextInt() + min;}
+    if ((sup & (~sup + 1)) == sup) {return ((sup - 1) & this._nextInt()) + min;}
 
     let value;
     do {
