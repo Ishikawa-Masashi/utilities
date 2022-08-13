@@ -1,4 +1,4 @@
-export type EventEmitterHandler<T> = (value: T) => any;
+export type EventEmitterHandler<T, Result = unknown> = (value: T) => Result;
 
 export type EventEmitter<T> = {
   /**
@@ -33,6 +33,6 @@ export const eventEmitter: <T>() => EventEmitter<T> = <T>() => {
     },
     emit(value: T) {
       set.forEach((handler) => handler(value));
-    }
+    },
   };
 };
