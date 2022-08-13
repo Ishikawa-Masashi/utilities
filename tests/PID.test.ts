@@ -1,9 +1,8 @@
-import { PID } from "../src";
+import { PID } from '../src';
 
-describe("PID", () => {
-  it("PIDのテスト", () => {
+describe('PID', () => {
+  it('PIDのテスト', () => {
     const pid = new PID(0.1, 100, -100, 0.1, 0.01, 0.5);
-
     // let value = 20;
     // for (let i = 0; i < 100; i++) {
     //   const inc = pid.calculate(0, value);

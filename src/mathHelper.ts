@@ -23,6 +23,7 @@
 //         /// Represents the value of pi(3.14159274).
 //         /// </summary>
 const Pi = Math.PI;
+const PI = Math.PI;
 //         /// <summary>
 //         /// Represents the value of pi divided by two(1.57079637).
 //         /// </summary>
@@ -35,6 +36,7 @@ const Pi = Math.PI;
 //         /// Represents the value of pi times two(6.28318548).
 //         /// </summary>
 const TwoPi = Math.PI * 2.0;
+const TWO_PI = Math.PI * 2.0;
 //         /// <summary>
 //         /// Represents the value of pi times two(6.28318548).
 //         /// This is an alias of TwoPi.
@@ -297,7 +299,8 @@ export class MathHelper {
   /// Factor = pi / 180
   /// </remarks>
   public static toRadians(degrees: number) {
-    return degrees * 0.017453292519943295769236907684886;
+    // return degrees * 0.017453292519943295769236907684886;
+    return (degrees * Pi) / 180;
   }
   /// <summary>
   /// Reduces a given angle to a value between π and -π.

@@ -7,3 +7,7 @@ export * from './PID';
 export * from './math/mersenneTwister';
 
 export * from './dom';
+
+export * from './pairwise';
+export * from './tripleWise';
+export { MathHelper } from './mathHelper';
