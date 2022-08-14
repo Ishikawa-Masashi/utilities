@@ -10,4 +10,4 @@ export * from './dom';
 
 export * from './pairwise';
 export * from './tripleWise';
-export * as mathHelper from './mathHelper';
+export * as MathHelper from './mathHelper';

@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
    * Ref: https://github.com/vitejs/vite/issues/2185#issuecomment-784637827
    */
   resolve: {
-    alias: [{ find: /^~/, replacement: "" }],
+    alias: [{ find: /^~/, replacement: '' }],
   },
 
   /**
@@ -18,7 +18,7 @@ export default defineConfig({
    * Ref:
    *   https://blog.csdn.net/baobao_123456789/article/details/113986961
    *   https://stackoverflow.com/questions/46729091/enable-inline-javascript-in-less
-   * 
+   *
    * TODO:
    *   In watch mode, changes in @import'ed files don't trigger CSS rebuild
    *   https://github.com/vitejs/vite/issues/3387
@@ -35,9 +35,9 @@ export default defineConfig({
   build: {
     // https://vitejs.bootcss.com/config/#build-lib
     lib: {
-      entry: "./src/index.ts",
-      formats: ["es"],
-      fileName: "index",
+      entry: './src/index.ts',
+      formats: ['es'],
+      fileName: 'index',
     },
 
     // https://vitejs.bootcss.com/config/#build-minify
@@ -45,13 +45,16 @@ export default defineConfig({
 
     /**
      * index.es.js:250 Uncaught Error: Minified React error #321; visit https://reactjs.org/docs/error-decoder.html?invariant=321 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
-     * 
+     *
      * Ref:
      *   https://github.com/styled-components/styled-components/issues/2690
      *   https://vitejs.bootcss.com/config/#build-rollupoptions
      */
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ['react', 'react-dom'],
     },
+  },
+  test: {
+    globals: true,
   },
 });

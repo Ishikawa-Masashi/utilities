@@ -9,7 +9,8 @@
     "build": "yarn clean && tsc && vite build",
     "build:debug": "node --inspect-brk=5858 ./node_modules/.bin/vite build",
     "publish": "npm publish --access public",
-    "lint": "eslint --fix \"src/**/*.{js,ts}\""
+    "lint": "eslint --fix \"src/**/*.{js,ts}\"",
+    "test": "yarn vitest"
   },
   "dependencies": {
     "react": "^17.0.0"
@@ -28,7 +29,8 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
     "typescript": "^4.1.2",
-    "vite": "^2.1.5"
+    "vite": "^2.1.5",
+    "vitest": "^0.21.1"
   },
   "peerDependencies": {
     "react-dom": "^17.0.2"
