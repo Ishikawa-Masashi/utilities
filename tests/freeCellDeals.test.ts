@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { deal_ms_fc_board } from '../src/freeCellDeals';
 
 describe('FreeCellDeals', () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 // https://magicant.github.io/sjavascript/mt.html
 import { MersenneTwister } from '../src';
 
