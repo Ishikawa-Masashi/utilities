@@ -12,6 +12,7 @@ export type IDictionary = Record<string, boolean>;
  */
 export interface ISerializableObject {
   toString?: () => string;
+  [key: string]: unknown;
 }
 
 /**
@@ -45,11 +46,11 @@ export function css(...args: ICssInput[]): string {
       ) {
         classes.push(arg.toString());
       } else {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        for (const key in arg as any) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          if ((arg as any)[key]) {
-            classes.push(key);
+        if (typeof arg === 'object') {
+          for (const key in arg) {
+            if (arg[key]) {
+              classes.push(key);
+            }
           }
         }
       }
