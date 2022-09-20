@@ -65,10 +65,10 @@ export class MersenneTwister {
 
   /** multiplies two uint32 values and returns a uint32 result. */
   static _mulUint32(a: number, b: number) {
-    const a1 = a >>> 16,
-      a2 = a & 0xffff;
-    const b1 = b >>> 16,
-      b2 = b & 0xffff;
+    const a1 = a >>> 16;
+    const a2 = a & 0xffff;
+    const b1 = b >>> 16;
+    const b2 = b & 0xffff;
     return (((a1 * b2 + a2 * b1) << 16) + a2 * b2) >>> 0;
   }
 
