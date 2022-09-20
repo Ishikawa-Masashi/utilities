@@ -90,17 +90,17 @@ export class MersenneTwister {
     const mt = this._mt;
     if (typeof seed == 'number') {
       mt[0] = seed >>> 0;
-      for (var i = 1; i < mt.length; i++) {
-        var x = mt[i - 1] ^ (mt[i - 1] >>> 30);
+      for (let i = 1; i < mt.length; i++) {
+        const x = mt[i - 1] ^ (mt[i - 1] >>> 30);
         mt[i] = MersenneTwister._mulUint32(1812433253, x) + i;
       }
       this._index = mt.length;
     } else if (seed instanceof Array) {
-      var i = 1,
-        j = 0;
+      let i = 1;
+      let j = 0;
       this.setSeed(19650218);
-      for (var k = Math.max(mt.length, seed.length); k > 0; k--) {
-        var x = mt[i - 1] ^ (mt[i - 1] >>> 30);
+      for (let k = Math.max(mt.length, seed.length); k > 0; k--) {
+        let x = mt[i - 1] ^ (mt[i - 1] >>> 30);
         x = MersenneTwister._mulUint32(x, 1664525);
         mt[i] = (mt[i] ^ x) + (seed[j] >>> 0) + j;
         if (++i >= mt.length) {
@@ -111,8 +111,8 @@ export class MersenneTwister {
           j = 0;
         }
       }
-      for (var k = mt.length - 1; k > 0; k--) {
-        var x = mt[i - 1] ^ (mt[i - 1] >>> 30);
+      for (let k = mt.length - 1; k > 0; k--) {
+        let x = mt[i - 1] ^ (mt[i - 1] >>> 30);
         x = MersenneTwister._mulUint32(x, 1566083941);
         mt[i] = (mt[i] ^ x) - i;
         if (++i >= mt.length) {
@@ -128,13 +128,13 @@ export class MersenneTwister {
 
   /** returns the next random Uint32 value. */
   private _nextInt() {
-    let mt = this._mt,
-      value;
+    const mt = this._mt;
+    let value;
 
     if (this._index >= mt.length) {
-      let k = 0,
-        N = mt.length,
-        M = 397;
+      let k = 0;
+      const N = mt.length;
+      const M = 397;
       do {
         value = (mt[k] & 0x80000000) | (mt[k + 1] & 0x7fffffff);
         mt[k] = mt[k + M] ^ (value >>> 1) ^ (value & 1 ? 0x9908b0df : 0);
@@ -166,18 +166,18 @@ export class MersenneTwister {
    * This method is compatible with genrand_int32 function of the original C
    * version for min=0 & max=2^32, but not with genrand_int31 function.
    */
-  public nextInt() {
+  public nextInt(...args: number[]) {
     let min, sup;
-    switch (arguments.length) {
+    switch (args.length) {
       case 0:
         return this._nextInt();
       case 1:
         min = 0;
-        sup = MersenneTwister._toNumber(arguments[0]);
+        sup = MersenneTwister._toNumber(args[0]);
         break;
       default:
-        min = MersenneTwister._toNumber(arguments[0]);
-        sup = MersenneTwister._toNumber(arguments[1]) - min;
+        min = MersenneTwister._toNumber(args[0]);
+        sup = MersenneTwister._toNumber(args[1]) - min;
         break;
     }
 
