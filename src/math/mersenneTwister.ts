@@ -54,7 +54,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * See also: setSeed(seed).
  */
 export class MersenneTwister {
-  private _mt = new Array<number>(624);
+  private _mt = new Uint32Array(624);
   private _index!: number;
   constructor(seed: number | number[] = new Date().getTime()) {
     // if (arguments.length == 0) seed = new Date().getTime();
