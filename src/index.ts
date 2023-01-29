@@ -11,3 +11,4 @@ export * from './dom';
 export * from './pairwise';
 export * from './tripleWise';
 export * as MathHelper from './mathHelper';
+export * from './strings';

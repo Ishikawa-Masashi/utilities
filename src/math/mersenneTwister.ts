@@ -129,7 +129,7 @@ export class MersenneTwister {
   /** returns the next random Uint32 value. */
   private _nextInt() {
     const mt = this._mt;
-    let value;
+    let value: number;
 
     if (this._index >= mt.length) {
       let k = 0;
