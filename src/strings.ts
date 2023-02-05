@@ -36,9 +36,12 @@ export function getTextBetweenParentheses(text: string) {
 }
 
 export function findOpenParen(text: string, closePos: number) {
+  if (text[closePos] !== ')') {
+    return -1;
+  }
   let openPos = closePos;
   let counter = 1;
-  while (counter > 0) {
+  while (counter > 0 && openPos > 0) {
     const c = text[--openPos];
     if (c == '(') {
       counter--;
@@ -46,13 +49,21 @@ export function findOpenParen(text: string, closePos: number) {
       counter++;
     }
   }
-  return openPos;
+
+  if (counter === 0) {
+    return openPos;
+  }
+
+  return -1;
 }
 
 export function findClosingParen(text: string, openPos: number) {
+  if (text[openPos] !== '(') {
+    return -1;
+  }
   let closePos = openPos;
   let counter = 1;
-  while (counter > 0) {
+  while (counter > 0 && closePos < text.length - 1) {
     const c = text[++closePos];
     if (c == '(') {
       counter++;
@@ -60,5 +71,10 @@ export function findClosingParen(text: string, openPos: number) {
       counter--;
     }
   }
-  return closePos;
+
+  if (counter === 0) {
+    return closePos;
+  }
+
+  return -1;
 }

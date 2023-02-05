@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { getTextBetweenParentheses } from '../src';
+import {
+  findOpenParen,
+  findClosingParen,
+  getTextBetweenParentheses,
+} from '../src';
 
 describe('strings', () => {
   it('getTextBetweenParentheses', () => {
@@ -26,5 +30,15 @@ describe('strings', () => {
 
     const result2 = '(' + getTextBetweenParentheses(text2) + ')';
     expect(result2).toEqual(text2);
+  });
+
+  it('findOpenParen', () => {
+    const text = 'faefawe (test a b)';
+    expect(findOpenParen(text, text.length - 1)).toBe(8);
+  });
+
+  it('findParen', () => {
+    const text = 'faefawe (test a b)';
+    expect(findClosingParen(text, 8)).toBe(17);
   });
 });
